@@ -1,0 +1,55 @@
+<div class="container" ng-controller="StatsController">
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Stats</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="chart-container col-xs-8">
+            <canvas id="chart" class="chart-base" chart-type="chartSelect" chart-data="data" chart-labels="labels" chart-options="options" ></canvas>
+        </div>
+        <div class="col-xs-4">
+            <div>
+                    <p style="padding:40px;"></p>
+            </div>
+            <form class="form-horizontal">
+                <select name="chartSelector" ng-model="chartSelect" class="form-control">
+                    <option value="line">Line Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="radar">Radar Chart</option>
+                    <option value="pie">Pie Chart</option>
+                    <option value="doughnut">Doughnut Chart</option>
+                    <option value="polarArea">Polar Chart</option>
+                </select>           
+            </form>
+            <div>
+                    <p style="padding:40px;"></p>
+            </div>
+            <h4>Note : The locations which had a tweet of less than 2 are not included in the chart for readability purposes. But the number of such places are {{others}}.</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="chart-container col-xs-8">
+            <canvas id="chart1" class="chart-base" chart-type="chartSelect1" chart-data="data1" chart-labels="labels1" chart-options="options1" ></canvas>
+        </div>
+        <div class="col-xs-4">
+            <div>
+                    <p style="padding:40px;"></p>
+            </div>
+            <form class="form-horizontal">
+                <select name="chartSelector" ng-model="chartSelect1" class="form-control">
+                    <option value="line">Line Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="radar">Radar Chart</option>
+                    <option value="pie">Pie Chart</option>
+                    <option value="doughnut">Doughnut Chart</option>
+                    <option value="polarArea">Polar Chart</option>
+                </select>           
+            </form>
+        </div>
+    </div>
+</div>

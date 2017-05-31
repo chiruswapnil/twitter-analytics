@@ -1,0 +1,87 @@
+
+    <div class="container" ng-controller="ListController">
+        <div class="row">
+            <div class="col-xs-12">
+               <ul class="breadcrumb">
+                   <li><a href="index.html">Home</a></li>
+                   <li class="active">List</li>
+               </ul>
+            </div>
+        </div>
+        
+        <div class="row row-content">
+            
+            <div class="col-xs-12">
+                <h2>Tweets</h2>
+                <form class="form-inline">
+                    <div class="form-group pull-right">
+                        <input type="text" ng-model="search" class="form-control" placeholder="Search Tweet">
+                        <select name="listSelector" ng-model="listSelect" class="form-control">
+                            <option value="">All Tweets</option>
+                            <option value="May 26">May 26,2017</option>
+                            <option value="May 28">May 28,2017</option>
+                        </select> 
+                    </div>
+                </form>
+            </div>
+            
+            <div class="col-xs-12">                
+                <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th ng-click="sort('created_at')">Created At 
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='created_at'" ng-class="{'glyphicon-chevron-up':!reverse,'glyphicon-chevron-down':reverse}"></span>
+                            </th>
+                            <th ng-click="sort('user.name')">User Name
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='user.name'" ng-class="{'glyphicon-chevron-up':!reverse,'glyphicon-chevron-down':reverse}"></span>
+                            </th>
+                            <th ng-click="sort('text')">Tweet Text
+                                <span class="glyphicon sort-icon" ng-show="sortKey=='text'" ng-class="{'glyphicon-chevron-up':!reverse,'glyphicon-chevron-down':reverse}"></span>
+                            </th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="tweet in tweets | orderBy:sortKey:reverse | filter:search | filter:listSelect |itemsPerPage:5">
+                            <td>{{tweet.created_at | date:'medium'}}</td>
+                            <td>{{tweet.user.name}}</td>
+                            <td>{{tweet.text}}</td>
+                            <td><a ng-click="openTweet(tweet)"><i class="fa fa-expand" aria-hidden="true"></i></a></td> 
+                        </tr>
+                    </tbody> 
+                </table>
+                </div>
+            </div>
+    
+            <dir-pagination-controls
+               max-size="5"
+               direction-links="true"
+               boundary-links="true" >
+            </dir-pagination-controls>
+            
+            
+             <div class="col-xs-12 col-sm-3">
+                <p style="padding:20px;"></p>
+            </div>
+            
+            <div ng-if="show">
+              <button class="btn btn-xs btn-primary" ng-hide="!show" ng-click="hideMe()">Hide</button>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                    <b>Tweet id :</b> {{tweet_details.id}} <br>
+                    <b>Tweet :</b> {{tweet_details.text}} <br>
+                    <b>Created At :</b> {{tweet_details.created_at}} <br>
+                    <b>User Name :</b> {{tweet_details.user.name}} <br>
+                    <b>User Profile image Url :</b> {{tweet_details.user.profile_image_url}} <br>
+                    <b>Retweet Count :</b> {{tweet_details.retweet_count}} <br>
+                    <b>Location :</b> {{tweet_details.user.location}} <br>
+                    <b>Followers Count :</b> {{tweet_details.user.followers_count}} <br>
+                    <b>Timezone :</b> {{tweet_details.user.time_zone}} <br>
+                    <b>Description :</b> {{tweet_details.user.description}} <br>
+                </div>
+              </div>
+            </div>
+            
+       </div> 
+    </div>

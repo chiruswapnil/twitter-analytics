@@ -1,0 +1,33 @@
+{
+  "name": "twitter-analytics",
+  "version": "1.0.0",
+  "description": "Website for twitter data analytics",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "twitter",
+    "analytics",
+    "charts"
+  ],
+  "authors": [
+    "Chiru Swapnil"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.4.0",
+    "angular": "~1.4.7",
+    "angular-ui-router": "^0.3.2",
+    "angular-chart.js": "^1.1.1",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-bootstrap": "^2.5.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "twitter",
+  "private": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "mongodb": "^2.2.27"
+  }
+}
