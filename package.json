@@ -5,6 +5,6 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
-    "mongodb": "^2.2.27"
+    "mongodb": "^3.6.1"
   }
 }
